@@ -1,1 +1,1 @@
-web: gunicorn Sigma.wsgi --log-file -
+web: gunicorn sigma.wsgi --log-file -
