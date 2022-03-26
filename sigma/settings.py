@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'cliente',
     'rest_framework',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +140,12 @@ STATICFILES_DIR = {
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+from django.contrib.messages import constants as minhas_msg
+
+MESSAGE_TAGS = {
+    minhas_msg.INFO: 'alert-info',
+    minhas_msg.ERROR: 'alert-danger',
+    minhas_msg.WARNING: 'alert-warning',
+    minhas_msg.SUCCESS: 'alert-success',
+}
