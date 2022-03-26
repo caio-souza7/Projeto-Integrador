@@ -1,1 +1,1 @@
-web: gunicorn ProjetoIntegrador.wsgi --log-file -
+web: gunicorn Sigma.wsgi --log-file -
