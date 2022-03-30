@@ -1,13 +1,14 @@
 {% load static %}
 {% load bootstrap5 %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 <nav class="navbar navbar-dark " style="background-color:#333" ;>
     <div class="container-fluid">
+        <img src="{% static 'images/LogoVetorizado.png' %}" alt="imagem" width="50" height="50">
         <a href="{% url 'home' %}" class="navbar-brand">Home</a>
         <div class="d-flex">
             {% if user.is_authenticated %}
             <a class="btn btn-light" href="{% url 'dashboard' %}">Dashboard</a>
-            <a class="btn btn-light .button" href="{% url 'logout' %}">Sair</a>
+            <a class="btn btn-light button" href="{% url 'logout' %}">Sair</a>
             {% else %}
             <a class="btn btn-light" href="{% url 'login' %}">Login</a>
             {% endif %}
