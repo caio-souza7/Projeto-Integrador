@@ -14,7 +14,125 @@
 </head>
 <body>
 {% include 'menu.html' %}
-{% include 'base.html' %}
-{% include 'rodape.html' %}
+<div class="container">
+    <div id="produtos1" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                {% for line in dados %}
+                <div class="card d-inline-block mx-auto" style="width: 18rem;">
+                    {% if line.foto %}
+                    <img src="{{line.foto.url}}" class="card-img-top" alt="...">
+                    {% endif %}
+                    <div class="card-body">
+                        <p class="card-text"> {{line.nome}}<br>{{line.preco}}</p>
+                    </div>
+                </div>
+                <!--                <div class="card d-inline-block mx-auto" style="width: 18rem;">-->
+                <!--                    <img src="{% static 'images/batom.png' %}" class="card-img-top" alt="...">-->
+                <!--                    <div class="card-body">-->
+                <!--                        <p class="card-text"> {{line.nome}}<br>{{line.preco}}</p>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#produtos1"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#produtos1"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="produtos2" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card d-inline-block mx-auto" style="width: 18rem;">
+                        <img src="{% static 'images/batom.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src="{% static 'images/lapis.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src="{% static 'images/logoMarca.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src="{% static 'images/logoMarca.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src="{% static 'images/logoMarca.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src="{% static 'images/logoMarca.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src="{% static 'images/logoMarca.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src="{% static 'images/logoMarca.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src="{% static 'images/logoMarca.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#produtos2"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#produtos2"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    {% include 'rodape.html' %}
 </body>
 </html>

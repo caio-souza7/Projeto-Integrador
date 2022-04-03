@@ -6,6 +6,6 @@ from produto.models import Produto
 
 class detProduto(admin.ModelAdmin):
     list_display = ("id", "categoria", "nome", "descricao", "fornecedor", "preco", "quantidade", "foto")
-
+    list_editable = ('categoria', "nome", "descricao", "fornecedor", "preco", "quantidade", "foto")
 
 admin.site.register(Produto, detProduto)

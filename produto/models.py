@@ -11,9 +11,8 @@ class Produto(models.Model):
     fornecedor = models.CharField(max_length=50)
     preco = models.DecimalField(decimal_places=2, max_digits=10, default=None)
     quantidade = models.IntegerField()
-    foto = models.ImageField(blank=True, null=True)
+    foto = models.ImageField(blank=True, null=True, upload_to='fotos/%y/%m/%d/')
 
     def __str__(self):
         return self.nome + '' + str(self.categoria)
         # return self.nome1
-
