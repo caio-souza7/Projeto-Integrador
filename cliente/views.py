@@ -4,8 +4,11 @@ from django.core.validators import validate_email
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
-
 # Create your views here.
+from categoria.models import Categoria
+from produto.models import Produto
+
+
 def login(request):
     if request.method != 'POST':
         return render(request, 'cliente/login.html')
@@ -79,4 +82,13 @@ def cadastrar(request):
 
 @login_required(redirect_field_name='login')
 def dashboard(request):
-    return render(request, 'cliente/dashboard.html')
+    categoria = Categoria.objects.order_by('id')
+
+    return render(request, 'cliente/dashboard.html', {'opcao': categoria})
+
+
+def buscar(request):
+    x = request.GET['buscar']
+    produto = Produto.objects.order_by('id').filter(categoria_id=x)
+
+    return render(request, 'cliente/dashboard.html', {'dados': produto})
