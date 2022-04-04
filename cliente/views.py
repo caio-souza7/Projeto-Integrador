@@ -83,12 +83,9 @@ def cadastrar(request):
 @login_required(redirect_field_name='login')
 def dashboard(request):
     categoria = Categoria.objects.order_by('id')
-
     return render(request, 'cliente/dashboard.html', {'opcao': categoria})
 
 
-def buscar(request):
-    x = request.GET['buscar']
-    produto = Produto.objects.order_by('id').filter(categoria_id=x)
-
+def buscar(request, idBusca):
+    produto = Produto.objects.order_by('id').filter(categoria_id=idBusca)
     return render(request, 'cliente/dashboard.html', {'dados': produto})

@@ -1,3 +1,5 @@
+{% load static %}
+{% load bootstrap5 %}
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -5,6 +7,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     <title>Cadastrar</title>
 </head>
 
@@ -17,7 +21,7 @@
         {% csrf_token %}
         <div class="mb-3">
             <label class="form-label">Email</label>
-            <input type="text" class="form-control" name="email" value="{{ request.POST.email }}" >
+            <input type="text" class="form-control" name="email" value="{{ request.POST.email }}">
         </div>
         <div class="mb-3">
             <label class="form-label">Usuário</label>
@@ -27,7 +31,7 @@
             <label class="form-label">Nome</label>
             <input type="text" class="form-control" name="nome" value="{{ request.POST.nome }}">
         </div>
-         <div class="mb-3">
+        <div class="mb-3">
             <label class="form-label">Sobre nome</label>
             <input type="text" class="form-control" name="sobrenome" value="{{ request.POST.sobrenome }}">
         </div>
@@ -35,7 +39,7 @@
             <label class="form-label">Senha</label>
             <input type="password" class="form-control" name="senha1">
         </div>
-         <div class="mb-3">
+        <div class="mb-3">
             <label class="form-label">Confirme a senha</label>
             <input type="password" class="form-control" name="senha2">
         </div>

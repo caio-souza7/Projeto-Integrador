@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import django.contrib.messages
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -142,11 +143,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-from django.contrib.messages import constants as minhas_msg
-
 MESSAGE_TAGS = {
-    minhas_msg.INFO: 'alert-info',
-    minhas_msg.ERROR: 'alert-danger',
-    minhas_msg.WARNING: 'alert-warning',
-    minhas_msg.SUCCESS: 'alert-success',
+    django.contrib.messages.constants.INFO: 'alert-info',
+    django.contrib.messages.constants.ERROR: 'alert-danger',
+    django.contrib.messages.constants.WARNING: 'alert-warning',
+    django.contrib.messages.constants.SUCCESS: 'alert-success',
 }
