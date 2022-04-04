@@ -49,11 +49,10 @@
             <td>{{line.preco}}</td>
             <td>
                 <button type="button" class="btn btn-outline-info"
-                        onclick={ x=function({{line.quantidade}},{{line.preco}}) }>Adicionar
+                        onclick=" adicionar({{line.id}},{{line.quantidade}},{{line.preco}}) ">Adicionar
                 </button>
             </td>
-            <td>
-                x
+            <td id="{{line.id}}">
             </td>
         </tr>
         {% endfor %}
@@ -67,12 +66,14 @@
 </body>
 
 <script type="text/javascript">
-function(qtd,valor){
-item = 0
+function adicionar(id,qtd,valor){
+let item = 0
 if(item < qtd)
 item = item + 1
-return total = item * valor
-})
+total = item * valor
+return  document.getElementById(id).innerHTML = total
+}
+
 
 
 </script>
