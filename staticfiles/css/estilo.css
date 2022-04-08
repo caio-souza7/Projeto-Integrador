@@ -1,0 +1,26 @@
+*{
+font-family: Helvetica, sans-serif;
+}
+h3{
+color: gray;
+padding-left: 110px;
+}
+h2{
+color: gray;
+}
+a:link {
+ text-decoration: none;
+  color: gray;
+}
+a:visited {
+ text-decoration: none;
+  color: green;
+}
+a:hover {
+ text-decoration: none;
+  color: blue;
+}
+a:active {
+ text-decoration: none;
+  color: gray;
+}

@@ -1,75 +1,82 @@
-{% load static %}
 {% load bootstrap5 %}
+{% load static %}
 <!doctype html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <title>Sigma</title>
 </head>
-<body>
-{% include 'menu.html' %}
 
-<div class="container">
-    <div id="produtos1" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                {% for line in cosmeticos %}
-                <div class="card d-inline-block mx-auto" style="width: 18rem;">
-                    {% if line.foto %}
-                    <img src="{{line.foto.url}}" class="card-img-top" alt="...">
-                    {% endif %}
-                    <div class="card-body">
-                        <p class="card-text"> {{line.nome}}<br>{{line.preco}}</p>
+<body>
+    {% include 'menu.html' %}
+    <div class="container" style="padding-top: 80px;">
+        <h3>Medicamentos</h3>
+        <div id="produtos1" class="carousel carousel-dark slide " data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="padding-left: 110px;padding-right: 110px">
+                    {% for line in remedios %}
+                    <div class="card d-inline-block"
+                        style="width: 12rem;padding-left: auto;padding-right: auto;padding-bottom: auto;">
+                        {% if line.foto %}
+                        <img src="{{line.foto.url}}" class="card-img-top" alt="...">
+                        {% endif %}
+                        <div class="card-body">
+                            <p class="card-text">
+                                <center> {{line.nome}}<br>{{line.preco}}</center>
+                            </p>
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#produtos1"
-                    data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#produtos1" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#produtos1"
-                    data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#produtos1" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
     </div>
-    <div id="produtos2" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                {% for line in remedios %}
-                <div class="card d-inline-block mx-auto" style="width: 18rem;">
-                    {% if line.foto %}
-                    <img src="{{line.foto.url}}" class="card-img-top" alt="...">
-                    {% endif %}
-                    <div class="card-body">
-                        <p class="card-text"> {{line.nome}}<br>{{line.preco}}</p>
+    <div class="container" style="padding-top: 20px;">
+        <h3>Beleza Higiene</h3>
+        <div id="produtos2" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="padding-left: 110px;padding-right: 110px">
+                    {% for line in cosmeticos %}
+                    <div class="card d-inline-block"
+                        style="width: 12rem;padding-left: auto;padding-right: auto;padding-bottom: auto;">
+                        {% if line.foto %}
+                        <img src="{{line.foto.url}}" class="card-img-top" alt="...">
+                        {% endif %}
+                        <div class="card-body">
+                            <p class="card-text">
+                                <center>{{line.nome}}<br>{{line.preco}}</center>
+                            </p>
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#produtos2" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#produtos2" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#produtos2"
-                    data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#produtos2"
-                    data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
     </div>
-</div>
-</div>
-{% include 'rodape.html' %}
+    {% include 'rodape.html' %}
 </body>
+
 </html>
+{% bootstrap_css %}
+{% bootstrap_javascript %}

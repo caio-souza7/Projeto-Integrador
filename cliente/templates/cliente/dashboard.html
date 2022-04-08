@@ -1,79 +1,89 @@
-{% load static %}
 {% load bootstrap5 %}
+{% load static %}
 <!doctype html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <title>Ambiente</title>
 </head>
 
 <body>
-{% include 'menu.html' %}
-<div class="container">
-    <h2> Seja Bem vindo {{ user.get_full_name }}</h2>
+    {% include 'menu.html' %}
+    <div class="container" style="padding-top: 80px;">
+        <div class="row " style="margin-top: 30px;">
+            <div class="col-md-6">
+                <h2> Seja Bem vindo - <span style="color: green">{{ user.get_full_name }}</span></h2>
+            </div>
+            <div class="col-md-6">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorias
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                        {% for line in opcao %}
+                        <li><a class="dropdown-item" href={{ line.id }}> {{ line.categoria }}</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
-                data-bs-toggle="dropdown" aria-expanded="false">
-            Categorias
-        </button>
-        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-            {% for line in opcao %}
-            <li><a class="dropdown-item" href={{ line.id }}> {{ line.categoria }}</a></li>
-            <li>
-                <hr class="dropdown-divider">
-            </li>
-            {% endfor %}
-        </ul>
+        <table class="table table-info" style="margin-top: 150px;">
+            <thead>
+                <tr>
+                    <th scope="col" class="table-light">Produto</th>
+                    <th scope="col" class="table-light">Marca</th>
+                    <th scope="col" class="table-light">Quatidade</th>
+                    <th scope="col" class="table-light">Preço</th>
+                    <th scope="col" class="table-light">Selecionar</th>
+                    <th scope="col" class="table-light">Acrescentado</th>
+                </tr>
+            <tbody>
+                {% for line in dados %}
+                <tr>
+                    <th scope="row">{{line.nome}}</th>
+                    <td>{{line.fornecedor}}</td>
+                    <td>{{line.quantidade}}</td>
+                    <td>{{line.preco}}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-info"
+                            onclick=" adicionar({{line.id}},{{line.quantidade}},{{line.preco}}) ">Adicionar
+                        </button>
+                    </td>
+                    <td id="{{line.id}}">
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+        <div class="d-flex flex-row-reverse">
+            <button type="button" class="btn btn-outline-info" onclick={function({{line.quantidade}})}>Carrinho
+            </button>
+        </div>
     </div>
-
-    <table class="table table-info">
-        <thead>
-        <tr>
-            <th scope="col" class="table-light">Produto</th>
-            <th scope="col" class="table-light">Marca</th>
-            <th scope="col" class="table-light">Quatidade</th>
-            <th scope="col" class="table-light">Preço</th>
-        </tr>
-        <tbody>
-        {% for line in dados %}
-        <tr>
-            <th scope="row">{{line.nome}}</th>
-            <td>{{line.fornecedor}}</td>
-            <td>{{line.quantidade}}</td>
-            <td>{{line.preco}}</td>
-            <td>
-                <button type="button" class="btn btn-outline-info"
-                        onclick=" adicionar({{line.id}},{{line.quantidade}},{{line.preco}}) ">Adicionar
-                </button>
-            </td>
-            <td id="{{line.id}}">
-            </td>
-        </tr>
-        {% endfor %}
-
-        </tbody>
-    </table>
-    <button type="button" class="btn btn-outline-info" onclick={function({{line.quantidade}})}>Carrinho
-    </button>
-</div>
-{% include 'rodape.html' %}
+    {% include 'rodape.html' %}
 </body>
 
 <script type="text/javascript">
-function adicionar(id,qtd,valor){
-let item = 0
-if(item < qtd)
-item = item + 1
-total = item * valor
-return  document.getElementById(id).innerHTML = total
-}
-
-
+    function adicionar(id, qtd, valor) {
+        let item = 0
+        if (item < qtd)
+            item = item + 1
+        total = item * valor
+        return document.getElementById(id).innerHTML = total
+    }
 </script>
+
 </html>
+{% bootstrap_css %}
+{% bootstrap_javascript %}

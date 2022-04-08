@@ -1,49 +1,37 @@
-{% load static %}
 {% load bootstrap5 %}
-<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-<footer class="mh-100">
-    <div class="bg-success p-2" style="--bs-bg-opacity: .2;">
-        <div class="row">
-            <div class="col-sm-3">
-                <img src="{% static 'images/logoMarca.png' %}" alt="logomarca" width="120" height="60">
-            </div>
-            <div class="col-sm-2">
-                <h5>Inicio</h5>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Cursos</a></li>
-                    <li><a href="">Downloads</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-2">
-                <h5>Sobre-nós</h5>
-                <ul>
-                    <li><a href="">Informações da Empresa</a></li>
-                    <li><a href="">Contato</a></li>
-                    <li><a href="">Blog</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-2">
-                <h5>Suporte</h5>
-                <ul>
-                    <li><a href="https://programadorviking.com.br/">FAQ</a></li>
-                    <li><a href="https://programadorviking.com.br/">Telefones</a></li>
-                    <li><a href="https://programadorviking.com.br/">Chat</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <div class="social-networks">
-                    <a href="https://programadorviking.com.br/" class="twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="https://programadorviking.com.br/" class="facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="https://programadorviking.com.br/" class="instagram"><i class="fa fa-instagram"></i></a>
-                </div>
-                <a href="https://programadorviking.com.br/">
-                    <button type="button" class="btn btn-default">Contato</button>
-                </a>
+{% load static %}
+<footer class="footer fixed-bottom bg-success p-2" style="--bs-bg-opacity: .2;">
+    <div class="row cols-4">
+        <div class="col" style="padding: 30px; margin-left: 100px;">
+            <img src="{% static 'images/logoMarca.png' %}" alt="logomarca" width="120" height="60">
+        </div>
+        <div class="col">
+            <h5>Serviço</h5>
+            <ul style="list-style: none; padding: 1px; margin-left: 1px;">
+                <li><a href="#">Informações</a></li>
+            </ul>
+        </div>
+        <div class="col" style="margin-left: -300px;margin-right: 100px">
+            <center>
+                <h5>Aceitamos</h5>
+            </center>
+            <div class="d-flex justify-content-between">
+                <img src="{% static 'images/icon_bb.png' %}" alt="logomarca">
+                <img src="{% static 'images/icon_itau.png' %}" alt="logomarca">
+                <img src="{% static 'images/icon_bradesco.png' %}" alt="logomarca">
+                <img src="{% static 'images/icon_mastercard.png' %}" alt="logomarca">
+                <img src="{% static 'images/icon_elo.png' %}" alt="logomarca">
+                <img src="{% static 'images/icon_hipercard.png' %}" alt="logomarca">
+                <img src="{% static 'images/icon_boleto.png' %}" alt="logomarca">
             </div>
         </div>
-        <div class="footer-copyright">
-            <p>© 2019 Copyright - Programador Viking</p>
+        <div class="col">
+            <h5>Atendimento</h5>
+            <ul style="list-style: none; padding: 1px; margin-left: 1px;">
+                <li><a href="#"></a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Troca/Devolução</a></li>
+            </ul>
         </div>
     </div>
 </footer>
