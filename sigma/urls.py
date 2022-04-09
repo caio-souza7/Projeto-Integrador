@@ -17,11 +17,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from cliente import views
 from sigma import settings
+from home import views
 
 urlpatterns = [
                   path('', include('home.urls'), name='home'),
+                  path('desenvolvedor/', views.desenvolvedor, name='desenvolvedor'),
+                  path('contato/', views.contato, name='contato'),
                   path('cliente/', include('cliente.urls')),
                   path('admin/', admin.site.urls),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
