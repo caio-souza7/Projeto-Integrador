@@ -6,47 +6,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <title>Cadastro de Cliente</title>
 </head>
 
 <body>
-    {% include 'menu.html' %}
-    <div class="container" style="max-width:400px; padding-top: 80px;">
+{% include 'menu.html' %}
+<div class="container" style="max-width:400px; padding-top: 80px;">
+    <center>
         <h2>Cadastro</h2>
-        {% include 'msg.html' %}
-        <form action="{% url 'cadastrar' %}" method="post">
-            {% csrf_token %}
-            <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="text" class="form-control" name="email" value="{{ request.POST.email }}">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Usuário</label>
-                <input type="text" class="form-control" name="usuario" value="{{ request.POST.usuario }}">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Nome</label>
-                <input type="text" class="form-control" name="nome" value="{{ request.POST.nome }}">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Sobre nome</label>
-                <input type="text" class="form-control" name="sobrenome" value="{{ request.POST.sobrenome }}">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Senha</label>
-                <input type="password" class="form-control" name="senha1">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Confirme a senha</label>
-                <input type="password" class="form-control" name="senha2">
-            </div>
+    </center>
+    {% include 'msg.html' %}
+    <form action="{% url 'cadastrar' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="text" class="form-control" name="email" value="{{ request.POST.email }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Usuário</label>
+            <input type="text" class="form-control" name="usuario" value="{{ request.POST.usuario }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" name="nome" value="{{ request.POST.nome }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Sobre nome</label>
+            <input type="text" class="form-control" name="sobrenome" value="{{ request.POST.sobrenome }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Senha</label>
+            <input type="password" class="form-control" name="senha1">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Confirme a senha</label>
+            <input type="password" class="form-control" name="senha2">
+        </div>
+        <center>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
-        </form>
-    </div>
-    {% include 'rodape.html' %}
+        </center>
+    </form>
+</div>
+{% include 'rodape.html' %}
 </body>
 
 </html>
